@@ -1,4 +1,4 @@
-package Service_price::db::Service_price;
+package Organizer::db::Organizer;
 
 use strict;
 use parent qw(dbcore);
@@ -20,7 +20,7 @@ sub new {
   return $self;
 }
 #**********************************************************
-=head2 get_headers($attr) - service status info
+=head2 get_info($attr) - service status info
 
   Arguments:
     $attr
@@ -31,28 +31,56 @@ sub new {
 
 =cut
 #**********************************************************
-sub get_headers {
+sub get_info {
   my $self = shift;
   my ($attr) = @_;
-  $self->query( "SELECT * FROM price_headers;", undef, { COLS_NAME => 1 });
+  $self->query( "SELECT * FROM organizer_info WHERE section_id = $attr;", undef, { COLS_NAME => 1 });
   return $self->{list};
 }
 #**********************************************************
-=head2 get_headers($attr) - service status info
+=head2 section_add() - Add info into DB
 
   Arguments:
-    $attr
-      ID
-
+     
   Returns:
     $self
-
 =cut
 #**********************************************************
-sub get_items {
+sub section_add {
   my $self = shift;
   my ($attr) = @_;
-  $self->query( "SELECT * FROM price_items WHERE header_id = $attr;", undef, { COLS_NAME => 1 });
+  $self->query_add('organizer_section', $attr);
+  return $self;
+
+}
+#**********************************************************
+=head2 info_add() - Add info into DB
+
+  Arguments:
+     
+  Returns:
+    $self
+=cut
+#**********************************************************
+sub info_add {
+  my $self = shift;
+  my ($attr) = @_;
+  $self->query_add('organizer_info', $attr);
+  return $self;
+}
+#**********************************************************
+=head2 get_section() - Get info about header from DB
+
+  Arguments:
+     
+  Returns:
+    $self->{list}
+=cut
+#**********************************************************
+sub get_section {
+  my $self = shift;
+  my ($attr) = @_;
+  $self->query("SELECT id,section_name FROM organizer_section;", undef, { COLS_NAME => 1 });
   return $self->{list};
 }
 1;

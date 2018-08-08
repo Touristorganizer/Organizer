@@ -4,10 +4,10 @@ use strict;
 use warnings FATAL => 'all';
 use Data::Dumper;
 use Abills::Base qw(_bp);
-use Service_price::db::Service_price_add;
+use Organizer::db::Organizer;
 our ($db, $admin, %info, %conf, %lang, $html,);
 
-my $Service_price = Service_price::db::Service_price_add->new($db, $admin, \%conf);
+my $Organizer = Organizer::db::Organizer->new($db, $admin, \%conf);
 #**********************************************************
 =head2 service_price_add() - Add headers and items to DB 
 
@@ -17,43 +17,43 @@ my $Service_price = Service_price::db::Service_price_add->new($db, $admin, \%con
     true
 =cut
 #**********************************************************
-sub service_price_add {
-  my $show_template1 = $FORM{header_form} || 0;
-  $Service_price->{ACTION}     = 'add_header';
-  $Service_price->{LNG_ACTION} = $lang{ADD};
+sub organizer_add {
+  my $show_template1 = $FORM{section_form} || 0;
+  $Organizer->{ACTION}     = 'add_section';
+  $Organizer->{LNG_ACTION} = $lang{ADD};
 
-  if ($FORM{add_header}) {
-    $Service_price->header_add({%FORM});
-    if (!$Service_price->{errno}) {
+  if ($FORM{add_section}) {
+    $Organizer->section_add({%FORM});
+    if (!$Organizer->{errno}) {
       $html->message('info', $lang{INFO}, $lang{ADDED});
     }
   }
-  $html->tpl_show(_include('service_price_add', 'Service_price'), $Service_price);
+  $html->tpl_show(_include('organizer_add', 'Organizer'), $Organizer);
 
 
-   my $show_template2 = $FORM{item_form} || 0;
-  $Service_price->{ACTION}     = 'add';
-  $Service_price->{LNG_ACTION} = $lang{ADD};
+   my $show_template2 = $FORM{info_form} || 0;
+  $Organizer->{ACTION}     = 'add';
+  $Organizer->{LNG_ACTION} = $lang{ADD};
 
   if ($FORM{add}) {
-    $Service_price->item_add({%FORM});
-    if (!$Service_price->{errno}) {
+    $Organizer->info_add({%FORM});
+    if (!$Organizer->{errno}) {
       $html->message('info', $lang{INFO}, $lang{ADDED});
     }
   }
-   my $header_select = $html->form_select(
-    'HEADER_ID',
+   my $section_select = $html->form_select(
+    'SECTION_ID',
     {
-      SELECTED => $FORM{HEADER_ID} || q{},
-      SEL_LIST  => $Service_price->get_header({ COLS_NAME => 1 }),
+      SELECTED => $FORM{SECTION_ID} || q{},
+      SEL_LIST  => $Organizer->get_section({ COLS_NAME => 1 }),
       SEL_KEY   => 'id',
-      SEL_VALUE => 'header_name'
+      SEL_VALUE => 'section_name'
     }
   );
-   $html->tpl_show(_include('service_price_add_items', 'Service_price'), { HEADER_SELECT => $header_select, %$Service_price});
+   $html->tpl_show(_include('organizer_add_info', 'Organizer'), { 
+    SECTION_SELECT => $section_select, %$Organizer});
   
   return 1;
 }
 
 1;
-
