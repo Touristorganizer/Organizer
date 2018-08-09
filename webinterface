@@ -17,7 +17,7 @@ my $Organizer = Organizer::db::Organizer->new($db, $admin, \%conf);
     true
 =cut
 #**********************************************************
-sub organizer_add {
+sub section_add {
   my $show_template1 = $FORM{section_form} || 0;
   $Organizer->{ACTION}     = 'add_section';
   $Organizer->{LNG_ACTION} = $lang{ADD};
@@ -28,20 +28,93 @@ sub organizer_add {
       $html->message('info', $lang{INFO}, $lang{ADDED});
     }
   }
-  $html->tpl_show(_include('organizer_add', 'Organizer'), $Organizer);
+   elsif ($FORM{change}) {
+    $Organizer->section_change({%FORM});
+    if (!$Organizer->{errno}) {
+      $html->message('info', $lang{INFO}, $lang{CHANGING});
+    }
+  }
+  elsif ($FORM{chg}) {
+    $Organizer->info_section($FORM{chg});
+    if (!$Organizer->{errno}) {
+      $html->message('info', $lang{INFO});
+    }
+    $Organizer->{ACTION}     = 'change';
+    $Organizer->{LNG_ACTION} = $lang{CHANGE};
+    $show_template1      = 1;
+  }
+  elsif ($FORM{del} || $FORM{COMMENTS}) {
+    $Organizer->section_del($FORM{del});
+    if (!$Organizer->{errno}) {
+      $html->message('info', $lang{INFO}, $lang{DELETED});
+    }
+  }
+  if ($show_template1) {
+    $html->tpl_show(_include('organizer_add', 'Organizer'), $Organizer); 
+  }
+ 
+  my $section_list = $Organizer->get_section();
+  my $table        = $html->table(
+    {
+      width   => '100%',
+      caption => $lang{SECTION},
+      border  => 1,
+      title   => [ $lang{ID}, $lang{NAME}, $lang{ICON} ],
+      pages   => $Organizer->{TOTAL},
+      qs      => $pages_qs,
+      ID      => 'SECTION_ID',
+      MENU    => "$lang{ADD}:index=$index&section_form=1&$pages_qs:add",
+    }
+  );
 
+  foreach my $line (@$section_list) {
+    $table->addrow(
+      $line->{id}, 
+      $line->{section_name}, 
+      $line->{section_icon},
+      $html->button($lang{CHANGE}, "index=$index&chg=$line->{id}", { class => 'change' }), 
+      $html->button($lang{DEL}, "index=$index&del=$line->{id}", { 
+        class   => 'del', 
+        MESSAGE => 'Delete?' }));
+  }
 
+  print $table->show();
+}
+sub info_add {
    my $show_template2 = $FORM{info_form} || 0;
   $Organizer->{ACTION}     = 'add';
   $Organizer->{LNG_ACTION} = $lang{ADD};
 
   if ($FORM{add}) {
-    $Organizer->info_add({%FORM});
+    $Organizer->service_add({%FORM});
     if (!$Organizer->{errno}) {
       $html->message('info', $lang{INFO}, $lang{ADDED});
     }
   }
-   my $section_select = $html->form_select(
+     elsif ($FORM{change}) {
+    $Organizer->service_change({%FORM});
+    if (!$Organizer->{errno}) {
+      $html->message('info', $lang{INFO}, $lang{CHANGING});
+    }
+  }
+  elsif ($FORM{chg}) {
+    $Organizer->service_info($FORM{chg});
+    # _bp('', $FORM{chg});
+    if (!$Organizer->{errno}) {
+      $html->message('info', $lang{INFO});
+    }
+    $Organizer->{ACTION}     = 'change';
+    $Organizer->{LNG_ACTION} = $lang{CHANGE};
+    $show_template2      = 1;
+  }
+  elsif ($FORM{del} || $FORM{COMMENTS}) {
+    $Organizer->service_del($FORM{del});
+    if (!$Organizer->{errno}) {
+      $html->message('info', $lang{INFO}, $lang{DELETED});
+    }
+  }
+  if ($show_template2) {
+    my $service_select = $html->form_select(
     'SECTION_ID',
     {
       SELECTED => $FORM{SECTION_ID} || q{},
@@ -51,7 +124,45 @@ sub organizer_add {
     }
   );
    $html->tpl_show(_include('organizer_add_info', 'Organizer'), { 
-    SECTION_SELECT => $section_select, %$Organizer});
+    SERVICE_SELECT => $service_select, %$Organizer});
+  }
+ 
+  my $service_list = $Organizer->get_service();
+  my $table        = $html->table(
+    {
+      width   => '100%',
+      caption => $lang{SERVICE},
+      border  => 1,
+      title   => [  
+        $lang{SERVICE_NAME}, 
+        $lang{DESCRIPTION}, 
+        $lang{ADDRESS}, 
+        $lang{AVR_TIME}, 
+        $lang{IMAGE} 
+      ],
+      pages   => $Organizer->{TOTAL},
+      qs      => $pages_qs,
+      ID      => 'SECTION_ID',
+      MENU    => "$lang{ADD}:index=$index&info_form=1&$pages_qs:add",
+    }
+  );
+
+  foreach my $line (@$service_list) {
+    $table->addrow( 
+      $line->{service_name}, 
+      $line->{description},
+      $line->{address},
+      $line->{avr_time},
+      $line->{image},
+      $html->button($lang{CHANGE}, "index=$index&chg=$line->{id}", { class => 'change' }), 
+      $html->button($lang{DEL}, "index=$index&del=$line->{id}", { 
+        class   => 'del', 
+        MESSAGE => 'Delete?' }));
+  }
+
+  print $table->show();
+
+   
   
   return 1;
 }

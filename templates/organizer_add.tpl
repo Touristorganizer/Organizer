@@ -1,5 +1,6 @@
     <form class='form-horizontal' action=$SELF_URL method='get' id='section_form' name='section_form' role='form'>
       <input type=hidden name=index value=$index>
+      <input type=hidden name=ID value='%ID%'>
       <fieldset>
         <div class='box box-form'>
           <div class='box-header with-border'>

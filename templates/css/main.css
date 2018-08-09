@@ -1,0 +1,40 @@
+.panel-heading:hover {
+    cursor: pointer;
+}
+.panel_icon {
+    background-color: #ffffff;
+    width: 35px;
+    height: 35px;
+    border-radius: 35px;
+    text-align: center;
+    padding-top: 7px;
+}
+.panel_text {
+    font-size: 16px;
+    font-weight: 700;
+}
+.panel_header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.list_items {
+    display: flex!important;
+    align-items: flex-start;
+}
+.list_title {
+    font-weight: 700;
+    font-size: 16px;
+}
+.list_img > img {
+    width: 100%;
+}
+.list_img {
+    width: 30%;
+}
+.list_body {
+    width: 70%;
+}
+.list_body {
+    padding: 0 7px;
+}

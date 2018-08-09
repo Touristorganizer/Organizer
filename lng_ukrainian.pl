@@ -1,8 +1,12 @@
 $lang{SERVICE_NAME}='Назва закладу';
 $lang{SECTION}='Розділ';
+$lang{SERVICE}='Заклад';
 $lang{SECTION_ICON}='Іконка розділу';
 $lang{DESCRIPTION}='Опис';
 $lang{ADDRESS}='Адреса';
 $lang{AVR_TIME}='Середній час';
 $lang{IMAGE}='Картинка';
+$lang{ADD_SECTION}='Додавання розділів';
+$lang{ADD_INFO}='Додавання закладів';
+$lang{ICON}='Значок'; 
 1;

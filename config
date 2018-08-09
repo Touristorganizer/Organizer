@@ -1,4 +1,5 @@
 #Iner_ID : Main or Sub or if -1 user menu func list
-%FUNCTIONS_LIST = ("01:0:$lang{ORGANIZER}:organizer_add:"          => 1,
+%FUNCTIONS_LIST = ("01:0:$lang{ADD_SECTION}:section_add:"          => 1,
+                   "02:1:$lang{ADD_INFO}:info_add:"          => 1,
 				   
                  );

@@ -1,6 +1,6 @@
 <form class='form-horizontal' action=$SELF_URL method='get' id='info_form' name='info_form' role='form'>
   <input type=hidden name=index value=$index>
- 
+  <input type=hidden name=ID value='%ID%'>
   <fieldset>
     <div class='box box-form'>
       <div class='box-header with-border'>
@@ -17,31 +17,31 @@
         <div class='form-group' >
           <label class='control-label col-md-3 text-left'  for='HEADER_NAME'>_{SECTION}_</label>
           <div class='col-md-9'>
-            %SECTION_SELECT%       
+            %SERVICE_SELECT%       
           </div>
         </div>
           <div class='form-group'>
           <label class='control-label col-md-3 text-left'  for='DESCRIPTION'>_{DESCRIPTION}_</label>
           <div class='col-md-9'>
-            <input id='DESCRIPTION' name='DESCRIPTION' value='%DESCRIPTION%' class='form-control' type='number' autocomplete="off" required>
+            <input id='DESCRIPTION' name='DESCRIPTION' value='%DESCRIPTION%' class='form-control' type='text' autocomplete="off" required>
           </div>
         </div>
           <div class='form-group'>
           <label class='control-label col-md-3 text-left'  for='ADDRESS'>_{ADDRESS}_</label>
           <div class='col-md-9'>
-            <input id='ADDRESS' name='ADDRESS' value='%ADDRESS%' class='form-control' type='number' autocomplete="off" required>
+            <input id='ADDRESS' name='ADDRESS' value='%ADDRESS%' class='form-control' type='text' autocomplete="off" required>
           </div>
         </div>
           <div class='form-group'>
           <label class='control-label col-md-3 text-left'  for='AVR_TIME'>_{AVR_TIME}_</label>
           <div class='col-md-9'>
-            <input id='AVR_TIME' name='AVR_TIME' value='%AVR_TIME%' class='form-control' type='number' autocomplete="off" required>
+            <input id='AVR_TIME' name='AVR_TIME' value='%AVR_TIME%' class='form-control' type='text' autocomplete="off" required>
           </div>
         </div>
           <div class='form-group'>
           <label class='control-label col-md-3 text-left'  for='IMAGE'>_{IMAGE}_</label>
           <div class='col-md-9'>
-            <input id='IMAGE' name='IMAGE' value='%IMAGE%' class='form-control' type='number' autocomplete="off" required>
+            <input id='IMAGE' name='IMAGE' value='%IMAGE%' class='form-control' type='text' autocomplete="off" required>
           </div>
         </div>  
       </div>

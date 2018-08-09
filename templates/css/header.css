@@ -1,0 +1,166 @@
+/* ==========================================================================
+   Base Styles, Bootstrap Modifications & Fonts Import
+   ========================================================================== */
+
+@import url(http://fonts.googleapis.com/css?family=Oswald:400,300,700);
+
+@import url(http://fonts.googleapis.com/css?family=Lato:400,700);
+
+/*
+ * Remove text-shadow in selection highlight: h5bp.com/i
+ * These selection rule sets have to be separate.
+ * Customize the background color to match your design.
+ */
+
+::-moz-selection {
+    background: #f2c2c9;
+    color: #a4003a;
+    text-shadow: none;
+}
+
+::selection {
+    background: #16a085;
+    color: #a4003a;
+    text-shadow: none;
+}
+
+.centered {
+	text-align: center
+}
+
+
+/* ==========================================================================
+   General styles
+   ========================================================================== */
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    font-family: "Lato" sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #000;
+
+    -webkit-font-smoothing: antialiased;
+    -webkit-overflow-scrolling: touch;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: "Oswald", sans-serif;
+	font-weight: 300;
+}
+
+/* ==========================================================================
+   Wrap Sections
+   ========================================================================== */
+
+#headerwrap {
+	background: url(/organizer/img/header2.jpg) no-repeat center top;
+	margin-top: 0px;
+	padding-top: 120px;
+	text-align: center;
+	background-attachment: relative;
+	background-position: center center;
+	width: 100%;
+	min-height: 100vh;
+
+	
+    -webkit-background-size: 100%;
+    -moz-background-size: 100%;
+    -o-background-size: 100%;
+    background-size: 100%;
+
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.darkbg {
+	margin-top: -120px;
+	padding-top: 120px;
+	min-height: 100vh;
+	width: 100%;
+	background-color: rgba(0, 0, 0, 0.2); /*255, 0, 0 */
+	
+}
+
+#headerwrap h1 {
+	color:#ffffff;
+	margin-top: 90px;
+	padding-bottom: px;
+	letter-spacing: 5px;
+	font-size: 65px;
+	font-weight: ;
+	font-weight: 500;
+	text-shadow: 2px 2px 1px #338fc3;
+	position: relative;
+	text-transform: uppercase;
+	#animation: mymove 1s;
+	#animation-timing-function: ease-out;
+}
+
+@keyframes mymove {
+    from {left:-100px;opacity:0.1;}
+    to {left: 0px;opacity:1;}
+}
+
+#headerwrap h2 {
+	color:#ffffff;
+	margin-top: px;
+	padding-bottom: 20px;
+	letter-spacing: px;
+	font-size: px;
+	text-shadow: 1px 1px #338fc3;
+	position: relative;
+	animation: mymove2 0.5s;
+	animation-delay: 0.8s;
+	animation-fill-mode: both;
+	animation-timing-function: ease-out;
+}
+
+@keyframes mymove2 {
+    from {bottom:-100px;opacity:0;}
+    to {bottom: 0px;opacity:1;}
+}
+
+
+#headerwrap button {
+	box-shadow: 1px 1px 1px #338fc3;
+	position: relative;
+	color: #338fc3;
+	font-size: 12px;
+	text-transform: uppercase;
+	min-width:90px;
+	margin:4px;
+	animation: mymove2 0.5s;
+	animation-delay: 1.4s;
+	animation-fill-mode: both;
+	animation-timing-function: ease-out;
+}
+
+#headerwrap button:hover{
+	box-shadow: 1px 1px 0px #999;
+	color: #333;
+}
+
+#headerwrap button span{
+	color: #338fc3;
+	font-size: 28px;
+	padding:5px;
+}
+
+
+@keyframes mymove2 {
+    from {bottom:-100px;opacity:0;}
+    to {bottom: 0px;opacity:1;}
+}
+
+.title span {
+  transform: skew(-10deg);
+  text-shadow: #338fc3 1px 1px, #338fc3 2px 2px, #338fc3 3px 3px;
+  position: relative;
+}
