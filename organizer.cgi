@@ -28,6 +28,7 @@ our (
   %conf,
   %lang,
   $base_dir,
+  $admin
 );
 
 # конфигурационный файл
@@ -46,6 +47,7 @@ my $html = Abills::HTML->new(
 
 # Подключение базы
 use Abills::SQL;
+use Abills::Base;
 my $db = Abills::SQL->connect($conf{dbtype}, $conf{dbhost}, $conf{dbname}, $conf{dbuser}, $conf{dbpasswd}, {
   CHARSET => ($conf{dbcharset}) ? $conf{dbcharset} : undef
 });
@@ -70,37 +72,46 @@ print $html->header();
 
 
 
-  my $section_list = $Organizer->get_section();
-  my $section_item1 = '';
-  my $section_item2 = '';
-  my $cards   = '';
-  # _bp('', $header_list);
-  foreach my $head (@$section_list){
-  
-  
+
+my $section_list = $Organizer->get_section();
+my $section_item2 = '';
+
+my $carts = '';
+my $items   = '';
+
+
+foreach my $head (@$section_list){
   my $information = $Organizer->get_info($head->{id});
     foreach my $info (@$information) {
-      $cards .= $html->tpl_show(_include('TEMPLATE CARD', 'Organizer'), { 
-    ITEM_NAME => $info->{item_name}, 
-    PRICE => $info->{price}});   
-
+      $items .= $html->tpl_show(_include('item', 'Organizer'), {
+        PARENTID => 'cart-' . $head->{id},
+        ID => 'list-' . $info->{id},
+        AVR_TIME => $info->{avr_time},
+        IMAGE => $info->{image},
+          SERVICE_NAME => $info->{service_name},
+          DESCRIPTION => $info->{description},
+          ADDRESS => $info->{address}
+        });
     }
-    $section_item1 .= $html->tpl_show(_include('TEMPLATE SECTION LEFT', 'Organizer'), {
-      HEADER_NAME1 => $head->{header_name}, 
-      PROPERTIES   => $cards,
-      ID           => $head->{id}}, { OUTPUT2RETURN => 1 });
-    $cards ='';
-    # $section_item2 .= $html->tpl_show(_include('TEMPLATE SECTION RIGHT', 'Organizer'), {
-    #   HEADER_NAME2 => $head->{header_name},
-    #   ID           => $head->{id}}, { OUTPUT2RETURN => 1 });
+    $carts .= $html->tpl_show(_include('cart', 'Organizer'), {
+        SECTION_ID => 'cart-' . $head->{id},
+        SECTION_NAME => $head->{section_name},
+        SECTION_ICON => $head->{section_icon},
+        SECTION_CONTENT => $items
+      }, { OUTPUT2RETURN => 1 });
+    $items ='';
+#     $section_item2 .= $html->tpl_show(_include('TEMPLATE SECTION RIGHT', 'Organizer'), {
+#       HEADER_NAME2 => $head->{header_name},
+#       ID           => $head->{id}}, { OUTPUT2RETURN => 1 });
   # _bp('', $items);
   # my $user_line = '';
 }
-  print $html->tpl_show(_include('TEMPLATE SECOND PAGE', 'Organizer'), { 
-    HEADER_PANEL_LEFT => $section_item1, 
-    # HEADER_PANEL_RIGHT => $section_item2,
-    });
-  
+
+#  print $carts;
+
+print $html->tpl_show(_include('main', 'Organizer'), {
+    CONTENT => $carts,
+  });
 
 
 

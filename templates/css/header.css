@@ -2,9 +2,9 @@
    Base Styles, Bootstrap Modifications & Fonts Import
    ========================================================================== */
 
-@import url(http://fonts.googleapis.com/css?family=Oswald:400,300,700);
+@import url(https://fonts.googleapis.com/css?family=Oswald:400,300,700);
 
-@import url(http://fonts.googleapis.com/css?family=Lato:400,700);
+@import url(https://fonts.googleapis.com/css?family=Lato:400,700);
 
 /*
  * Remove text-shadow in selection highlight: h5bp.com/i
@@ -36,14 +36,11 @@
 html,
 body {
     height: 100%;
-}
-
-body {
     font-family: "Lato" sans-serif;
     font-weight: 400;
     font-size: 16px;
     color: #000;
-
+	#display: none;
     -webkit-font-smoothing: antialiased;
     -webkit-overflow-scrolling: touch;
 }
@@ -66,7 +63,8 @@ h1, h2, h3, h4, h5, h6 {
 	background-position: center center;
 	width: 100%;
 	min-height: 100vh;
-
+	display: none;
+	margin-bottom:-20px;
 	
     -webkit-background-size: 100%;
     -moz-background-size: 100%;
@@ -77,6 +75,21 @@ h1, h2, h3, h4, h5, h6 {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+}
+
+@media only screen and (min-device-width: 101px) and (max-device-width: 480px){
+#headerwrap .container {
+	margin-top: -80px;
+}
+#headerwrap h2 {
+	font-size: 24px;
+}
+}
+
+@media only screen and (min-device-width: 479px) and (max-device-width: 768px){
+#headerwrap .container {
+	margin-top: -40px;
+}
 }
 
 .darkbg {
@@ -99,6 +112,7 @@ h1, h2, h3, h4, h5, h6 {
 	text-shadow: 2px 2px 1px #338fc3;
 	position: relative;
 	text-transform: uppercase;
+	animation-fill-mode: both;
 	#animation: mymove 1s;
 	#animation-timing-function: ease-out;
 }
@@ -163,4 +177,33 @@ h1, h2, h3, h4, h5, h6 {
   transform: skew(-10deg);
   text-shadow: #338fc3 1px 1px, #338fc3 2px 2px, #338fc3 3px 3px;
   position: relative;
+}
+/**********************/
+.favicon {
+	display: inline-block;
+  font-size: 30px;
+  width: 50px;
+  height: 50px;
+  padding-top: 4px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+  border-radius: 50%;
+
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.favicon {
+  background: #3B5998;
+  color: white;
+}
+
+.icon {
+	position: absolute;
+	bottom: 35px;
+    left: 0;
+    right: 0;
 }
