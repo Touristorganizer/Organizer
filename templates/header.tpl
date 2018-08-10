@@ -16,19 +16,25 @@
 	<div class="darkbg">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-10 col-md-offset-1">
+				<div class="col-sm-12 col-md-10 col-md-offset-1">
 					<h1 class="title">Вітаємо в Коломиї</h1>
 					<h2>Сплануй свій час в нашому місті</h2>
 					<a href="/organizer.cgi"><button type="button" class="btn btn-default btn-lg"><i style="font-size: 20px;padding-bottom: 8px;" class="fa fa-cutlery"></i><br> Їжа</button></a>
 					<a href="/organizer.cgi"><button type="button" class="btn btn-default btn-lg"><i style="font-size: 20px;padding-bottom: 8px;" class="fa fa-futbol-o"></i><br> Розваги</button></a>
+					<br>
 					<a href="/organizer.cgi"><button type="button" class="btn btn-default btn-lg"><i style="font-size: 20px;padding-bottom: 8px;" class="fa fa-bed"></i><br> Нічліг</button></a>
+					<a href="/organizer.cgi"><button type="button" class="btn btn-default btn-lg"><i style="font-size: 20px;padding-bottom: 8px;" class="fa fa-calendar"></i><br> Події</button></a>
+					<div class="icon">
+						<a href="https://www.facebook.com/%D0%A2%D1%83%D1%80%D0%B8%D1%81%D1%82%D0%B8%D1%87%D0%BD%D0%B8%D0%B9-%D0%BE%D1%80%D0%B3%D0%B0%D0%BD%D0%B0%D0%B9%D0%B7%D0%B5%D1%80-1871874569784871/" class=" favicon"><i class="fa fa-facebook"></i>
+						</a>
+					</div>
 				</div>
 			</div>
+
 		</div>
 		<!-- --/row ---->
-		<div class="icon">
-<a href="https://www.facebook.com/%D0%A2%D1%83%D1%80%D0%B8%D1%81%D1%82%D0%B8%D1%87%D0%BD%D0%B8%D0%B9-%D0%BE%D1%80%D0%B3%D0%B0%D0%BD%D0%B0%D0%B9%D0%B7%D0%B5%D1%80-1871874569784871/" class=" favicon"><i class="fa fa-facebook"></i></a>
-</div>
+		
+
 	</div>
 	<!-- --/container ---->
 

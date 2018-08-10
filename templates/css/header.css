@@ -94,7 +94,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .darkbg {
 	margin-top: -120px;
-	padding-top: 120px;
+	padding-top: 100px;
 	min-height: 100vh;
 	width: 100%;
 	background-color: rgba(0, 0, 0, 0.2); /*255, 0, 0 */
@@ -148,8 +148,8 @@ h1, h2, h3, h4, h5, h6 {
 	color: #338fc3;
 	font-size: 12px;
 	text-transform: uppercase;
-	min-width:90px;
-	margin:4px;
+	min-width:85px;
+	margin:10px;
 	animation: mymove2 0.5s;
 	animation-delay: 1.4s;
 	animation-fill-mode: both;
@@ -189,6 +189,7 @@ h1, h2, h3, h4, h5, h6 {
   text-decoration: none;
   margin: 5px 2px;
   border-radius: 50%;
+  margin-top: 50px;
 
 }
 
@@ -202,7 +203,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .icon {
-	position: absolute;
+	position: relative;
 	bottom: 35px;
     left: 0;
     right: 0;
