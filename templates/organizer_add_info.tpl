@@ -71,13 +71,13 @@
             <div class='form-group'>
           <label class='control-label col-md-3 text-left'  for='START_DATE'>_{START_DATE}_</label>
           <div class='col-md-9'>
-            <input id='START_DATE' name='START_DATE' value='%START_DATE%' class='form-control' type='text' autocomplete="off" required>
+            <input id='START_DATE' name='START_DATE' value='%START_DATE%' class='form-control' type='date' autocomplete="off" required>
           </div>
         </div>
             <div class='form-group'>
           <label class='control-label col-md-3 text-left'  for='FINISH_DATE'>_{FINISH_DATE}_</label>
           <div class='col-md-9'>
-            <input id='FINISH_DATE' name='FINISH_DATE' value='%FINISH_DATE%' class='form-control' type='text' autocomplete="off" required>
+            <input id='FINISH_DATE' name='FINISH_DATE' value='%FINISH_DATE%' class='form-control' type='date' autocomplete="off" required>
           </div>
         </div> 
       </div>
