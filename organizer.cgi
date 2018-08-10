@@ -84,13 +84,15 @@ foreach my $head (@$section_list){
   my $information = $Organizer->get_info($head->{id});
     foreach my $info (@$information) {
       $items .= $html->tpl_show(_include('item', 'Organizer'), {
-        PARENTID => 'cart-' . $head->{id},
-        ID => 'list-' . $info->{id},
-        AVR_TIME => $info->{avr_time},
-        IMAGE => $info->{image},
-          SERVICE_NAME => $info->{service_name},
-          DESCRIPTION => $info->{description},
-          ADDRESS => $info->{address}
+        PARENTID     => 'cart-' . $head->{id},
+        ID           => 'list-' . $info->{id},
+        AVR_TIME     => $info->{avr_time},
+        IMAGE        => $info->{image},
+        SERVICE_NAME => $info->{service_name},
+        DESCRIPTION  => $info->{description},
+        ADDRESS      => $info->{address},
+        TIME_START   => $info->{time_start},
+        TIME_FINISH  => $info->{time_finish}
         });
     }
     $carts .= $html->tpl_show(_include('cart', 'Organizer'), {

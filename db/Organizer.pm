@@ -31,7 +31,8 @@ sub new {
 sub get_info {
   my $self = shift;
   my ($attr) = @_;
-  $self->query( "SELECT * FROM organizer_info WHERE section_id = $attr;", undef, { COLS_NAME => 1 });
+  $self->query( "SELECT id,service_name,description,address,avr_time,image,DATE_FORMAT(`time_start`, '%H:%i') AS time_start,DATE_FORMAT(`time_finish`, '%H:%i') AS time_finish,
+  lat,lng,start_date,finish_date FROM organizer_info WHERE section_id = $attr;", undef, { COLS_NAME => 1 });
   return $self->{list};
 }
 #**********************************************************
