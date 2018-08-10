@@ -7,9 +7,9 @@
 	<title>Вітаємо в Коломиї</title>
 	<meta name="description" content="Туристичний органайзер для гостей міста Коломиї">
 	<link rel="shortcut icon" href="">
-	<link rel="stylesheet" href="/organizer/css/bootstrap.min.css">
-	<link href="/organizer/css/header.css" rel="stylesheet">
-	<link rel="stylesheet" href="/organizer/css/font-awesome.min.css">
+	<link rel="stylesheet" href="/images/css/bootstrap.min.css">
+	<link href="/images/css/header.css" rel="stylesheet">
+	<link rel="stylesheet" href="/images/css/font-awesome.min.css">
 </head>
 <body data-spy="scroll" data-offset="0" data-target="#theMenu" style="" class="">
 <div id="headerwrap">
@@ -34,8 +34,8 @@
 
 </div>
 <!-- --/headerwrap ---->
-<script src='/organizer/js/jquery.min.js'></script>
-<script src="/organizer/js/bootstrap.min.js"></script>
+<script src='/images/js/jquery.min.js'></script>
+<script src="/images/js/bootstrap.min.js"></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/lettering.js/0.7.0/jquery.lettering.min.js'></script>
 <script>

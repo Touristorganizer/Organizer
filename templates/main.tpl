@@ -7,9 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Вітаємо в Коломиї</title>
     <meta name="description" content="Туристичний органайзер для гостей міста Коломиї">
-    <link rel="stylesheet" href="/organizer/css/style.css">
-    <link rel="stylesheet" href="/organizer/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/organizer/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/images/css/style.css">
+    <link rel="stylesheet" href="/images/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/images/css/font-awesome.min.css">
 </head>
 <body>
 
@@ -36,9 +36,9 @@
     </section>
 </main>
 
-<script src="/organizer/js/jquery.min.js"></script>
+<script src="/images/js/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
-<script src="/organizer/js/index.js"></script>
-<script src="/organizer/js/bootstrap.min.js"></script>
+<script src="/images/js/index.js"></script>
+<script src="/images/js/bootstrap.min.js"></script>
 </body>
 </html>
