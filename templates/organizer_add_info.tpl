@@ -47,37 +47,37 @@
          <div class='form-group'>
           <label class='control-label col-md-3 text-left'  for='TIME_START'>_{TIME_START}_</label>
           <div class='col-md-9'>
-            <input id='TIME_START' name='TIME_START' value='%TIME_START%' class='form-control' type='time' autocomplete="off" required>
+            <input id='TIME_START' name='TIME_START' value='%TIME_START%' class='form-control' type='time' autocomplete="off" >
           </div>
         </div> 
          <div class='form-group'>
           <label class='control-label col-md-3 text-left'  for='TIME_FINISH'>_{TIME_FINISH}_</label>
           <div class='col-md-9'>
-            <input id='TIME_FINISH' name='TIME_FINISH' value='%TIME_FINISH%' class='form-control' type='time' autocomplete="off" required>
+            <input id='TIME_FINISH' name='TIME_FINISH' value='%TIME_FINISH%' class='form-control' type='time' autocomplete="off" >
           </div>
         </div> 
          <div class='form-group'>
           <label class='control-label col-md-3 text-left'  for='LAT'>_{LAT}_</label>
           <div class='col-md-9'>
-            <input id='LAT' name='LAT' value='%LAT%' class='form-control' type='text' autocomplete="off" required>
+            <input id='LAT' name='LAT' value='%LAT%' class='form-control' type='text' autocomplete="off" >
           </div>
         </div> 
          <div class='form-group'>
           <label class='control-label col-md-3 text-left'  for='LNG'>_{LNG}_</label>
           <div class='col-md-9'>
-            <input id='LNG' name='LNG' value='%LNG%' class='form-control' type='text' autocomplete="off" required>
+            <input id='LNG' name='LNG' value='%LNG%' class='form-control' type='text' autocomplete="off" >
           </div>
         </div>
             <div class='form-group'>
           <label class='control-label col-md-3 text-left'  for='START_DATE'>_{START_DATE}_</label>
           <div class='col-md-9'>
-            <input id='START_DATE' name='START_DATE' value='%START_DATE%' class='form-control' type='date' autocomplete="off" required>
+            <input id='START_DATE' name='START_DATE' value='%START_DATE%' class='form-control' type='date' autocomplete="off" >
           </div>
         </div>
             <div class='form-group'>
           <label class='control-label col-md-3 text-left'  for='FINISH_DATE'>_{FINISH_DATE}_</label>
           <div class='col-md-9'>
-            <input id='FINISH_DATE' name='FINISH_DATE' value='%FINISH_DATE%' class='form-control' type='date' autocomplete="off" required>
+            <input id='FINISH_DATE' name='FINISH_DATE' value='%FINISH_DATE%' class='form-control' type='date' autocomplete="off" >
           </div>
         </div> 
       </div>
