@@ -138,7 +138,11 @@ sub info_add {
         $lang{DESCRIPTION}, 
         $lang{ADDRESS}, 
         $lang{AVR_TIME}, 
-        $lang{IMAGE} 
+        $lang{IMAGE},
+        $lang{TIME_START},
+        $lang{TIME_FINISH},
+        $lang{LAT},
+        $lang{LNG}, 
       ],
       pages   => $Organizer->{TOTAL},
       qs      => $pages_qs,
@@ -154,6 +158,10 @@ sub info_add {
       $line->{address},
       $line->{avr_time},
       $line->{image},
+      $line->{time_start},
+      $line->{time_finish},
+      $line->{lat},
+      $line->{lng},
       $html->button($lang{CHANGE}, "index=$index&chg=$line->{id}", { class => 'change' }), 
       $html->button($lang{DEL}, "index=$index&del=$line->{id}", { 
         class   => 'del', 

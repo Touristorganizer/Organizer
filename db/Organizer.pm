@@ -137,7 +137,8 @@ sub section_del {
 sub get_service {
   my $self = shift;
   my ($attr) = @_;
-  $self->query("SELECT id,service_name,description,address,avr_time,image FROM organizer_info;", 
+  $self->query("SELECT id,service_name,description,address,avr_time,image,time_start,time_finish,
+  lat,lng FROM organizer_info;", 
     undef, { COLS_NAME => 1 });
   return $self->{list};
 }
@@ -153,7 +154,8 @@ sub get_service {
 sub service_info {
   my $self = shift;
   my ($attr) = @_;
-  $self->query("SELECT id,service_name,description,address,avr_time,image FROM organizer_info WHERE id=$attr;", 
+  $self->query("SELECT id,service_name,description,address,avr_time,image,time_start,time_finish,
+  lat,lng FROM organizer_info WHERE id=$attr;", 
     undef, { INFO => 1 });
   return $self;
 }

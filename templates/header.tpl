@@ -19,9 +19,9 @@
 				<div class="col-md-10 col-md-offset-1">
 					<h1 class="title">Вітаємо в Коломиї</h1>
 					<h2>Сплануй свій час в нашому місті</h2>
-					<a href="https://91.234.24.4:9443/organizer.cgi"><button type="button" class="btn btn-default btn-lg"><i style="font-size: 20px;padding-bottom: 8px;" class="fa fa-cutlery"></i><br> Їжа</button></a>
-					<a href="https://91.234.24.4:9443/organizer.cgi"><button type="button" class="btn btn-default btn-lg"><i style="font-size: 20px;padding-bottom: 8px;" class="fa fa-futbol-o"></i><br> Розваги</button></a>
-					<a href="https://91.234.24.4:9443/organizer.cgi"><button type="button" class="btn btn-default btn-lg"><i style="font-size: 20px;padding-bottom: 8px;" class="fa fa-bed"></i><br> Нічліг</button></a>
+					<a href="/organizer.cgi"><button type="button" class="btn btn-default btn-lg"><i style="font-size: 20px;padding-bottom: 8px;" class="fa fa-cutlery"></i><br> Їжа</button></a>
+					<a href="/organizer.cgi"><button type="button" class="btn btn-default btn-lg"><i style="font-size: 20px;padding-bottom: 8px;" class="fa fa-futbol-o"></i><br> Розваги</button></a>
+					<a href="/organizer.cgi"><button type="button" class="btn btn-default btn-lg"><i style="font-size: 20px;padding-bottom: 8px;" class="fa fa-bed"></i><br> Нічліг</button></a>
 				</div>
 			</div>
 		</div>

@@ -9,4 +9,8 @@ $lang{IMAGE}='Картинка';
 $lang{ADD_SECTION}='Додавання розділів';
 $lang{ADD_INFO}='Додавання закладів';
 $lang{ICON}='Значок'; 
+$lang{TIME_START}='Початок роботи',
+$lang{TIME_FINISH}='Кінець роботи',
+$lang{LAT}='Широта',
+$lang{LNG}='Довгота',
 1;
