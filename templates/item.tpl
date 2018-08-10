@@ -5,7 +5,7 @@
             <div class="time-info">Середній час -  <b>%AVR_TIME% год.</b></div>
         </div>
         <div class="list_body">
-            <p class="list_title text-center">%SERVICE_NAME%»</p>
+            <p class="list_title text-center">%SERVICE_NAME%</p>
             <p class="list_description text-muted">%DESCRIPTION%</p>
             <p class="adress"><i class="fa fa-map-marker fa-2x text-danger" aria-hidden="true"></i>&nbsp;&nbsp;<b>%ADDRESS%</b> </p>
         </div>
