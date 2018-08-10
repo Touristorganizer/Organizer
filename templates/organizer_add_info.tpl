@@ -1,4 +1,4 @@
-<form class='form-horizontal' action=$SELF_URL method='get' id='info_form' name='info_form' role='form'>
+<form class='form-horizontal' action=$SELF_URL method='post' id='info_form' name='info_form' role='form'>
   <input type=hidden name=index value=$index>
   <input type=hidden name=ID value='%ID%'>
   <fieldset>

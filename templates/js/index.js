@@ -43,7 +43,7 @@ function dragDrop(item, firstParent, secondParent) {
             jQuery('#selectedList').append(jQuery(this).parents('.group-item').css({height: 0}).animate({height: height}));
 
             arr.push(jQuery(this).parents('.group-item').attr('id'));
-            console.log(arr);
+            // console.log(arr);
         }
         jQuery.cookie('items', JSON.stringify(arr));
 
