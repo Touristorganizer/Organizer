@@ -138,7 +138,7 @@ sub get_service {
   my $self = shift;
   my ($attr) = @_;
   $self->query("SELECT id,service_name,description,address,avr_time,image,time_start,time_finish,
-  lat,lng FROM organizer_info;", 
+  lat,lng,start_date,finish_date FROM organizer_info;", 
     undef, { COLS_NAME => 1 });
   return $self->{list};
 }
@@ -155,7 +155,7 @@ sub service_info {
   my $self = shift;
   my ($attr) = @_;
   $self->query("SELECT id,service_name,description,address,avr_time,image,time_start,time_finish,
-  lat,lng FROM organizer_info WHERE id=$attr;", 
+  lat,lng,start_date,finish_date FROM organizer_info WHERE id=$attr;", 
     undef, { INFO => 1 });
   return $self;
 }
