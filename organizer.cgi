@@ -97,6 +97,7 @@ foreach my $head (@$section_list) {
 						SECTION_ID      => 'cart-'.$head->{id},
 						SECTION_NAME    => $head->{section_name},
 						SECTION_ICON    => $head->{section_icon},
+   						HEADER_COLOR    => $head->{header_color},
 						SECTION_CONTENT => $items
 				}, { OUTPUT2RETURN => 1 });
 		$items = '';

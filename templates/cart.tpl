@@ -1,5 +1,5 @@
 <div class="panel-group panel_items" >
-    <div class="panel panel-primary">
+    <div class="panel" style="background-color: %HEADER_COLOR%;">
         <div class="panel-heading panel_header">
             <div class="panel_icon"><i class=" %SECTION_ICON% text-primary" aria-hidden="true"></i></div>
             <p class="panel_text">%SECTION_NAME%</p>

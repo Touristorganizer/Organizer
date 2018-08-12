@@ -94,7 +94,7 @@ sub get_section {
 sub info_section {
   my $self = shift;
   my ($attr) = @_;
-  $self->query("SELECT id,section_name,section_icon,header_color FROM organizer_section;", 
+  $self->query("SELECT id,section_name,section_icon,header_color FROM organizer_section where id=$attr;", 
     undef, { INFO => 1 });
   return $self;
 }

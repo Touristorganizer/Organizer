@@ -30,7 +30,7 @@
                     %CONTENT%
                 </div>
                 <div class="col-md-6 col-sm-12">
-                    <div class="panel panel-primary">
+                    <div class="panel" style="background-color: springgreen;">
                         <div class="panel-heading">
                         <p class="panel_text">Ваш вибір:</p>
                         </div>

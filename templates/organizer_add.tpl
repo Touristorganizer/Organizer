@@ -20,6 +20,12 @@
                 <input id='SECTION_ICON' name='SECTION_ICON' value='%SECTION_ICON%' class='form-control' type='text' autocomplete="off" required>
               </div>
             </div>
+             <div class='form-group'>
+              <label class='control-label col-md-3 text-left'  for='HEADER_COLOR'>_{HEADER_COLOR}_</label>
+              <div class='col-md-9'>
+                <input id='HEADER_COLOR' name='HEADER_COLOR' value='%HEADER_COLOR%' class='form-control' type='text' autocomplete="off" required>
+              </div>
+            </div>
           </div>
           <div class='box-footer'>
             <input type=submit name=%ACTION% value='%LNG_ACTION%' class="btn btn-primary" >

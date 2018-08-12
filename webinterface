@@ -59,7 +59,11 @@ sub section_add {
       width   => '100%',
       caption => $lang{SECTION},
       border  => 1,
-      title   => [ $lang{ID}, $lang{NAME}, $lang{ICON}, $lang{HEAD_COLOR} ],
+      title   => [ 
+       $lang{ID}, 
+       $lang{NAME}, 
+       $lang{ICON}, 
+       $lang{HEADER_COLOR} ],
       pages   => $Organizer->{TOTAL},
       qs      => $pages_qs,
       ID      => 'SECTION_ID',

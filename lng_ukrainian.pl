@@ -15,5 +15,5 @@ $lang{LAT}='Широта',
 $lang{LNG}='Довгота',
 $lang{START_DATE}='Дата початку(рік-місяць-день)',
 $lang{FINISH_DATE}='Дата закінчення(рік-місяць-день)',
-$lang{HEAD_COLOR}='Колір розділу'
+$lang{HEADER_COLOR}='Колір розділу'
 1;
