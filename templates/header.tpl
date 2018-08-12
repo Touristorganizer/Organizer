@@ -29,11 +29,21 @@
 				<div class="col-sm-12 col-md-10 col-md-offset-1">
 					<h1 class="title">Вітаємо в Коломиї</h1>
 					<h2>Сплануй свій час в нашому місті</h2>
-					<a href="/organizer.cgi"><button type="button" class="btn btn-default btn-lg"><i style="font-size: 20px;padding-bottom: 8px;" class="fa fa-cutlery"></i><br> Їжа</button></a>
-					<a href="/organizer.cgi"><button type="button" class="btn btn-default btn-lg"><i style="font-size: 20px;padding-bottom: 8px;" class="fa fa-futbol-o"></i><br> Розваги</button></a>
-					<br>
-					<a href="/organizer.cgi"><button type="button" class="btn btn-default btn-lg"><i style="font-size: 20px;padding-bottom: 8px;" class="fa fa-bed"></i><br> Нічліг</button></a>
-					<a href="/organizer.cgi"><button type="button" class="btn btn-default btn-lg"><i style="font-size: 20px;padding-bottom: 8px;" class="fa fa-calendar"></i><br> Події</button></a>
+					<div class="btn-group btn-group-md" role="group">
+					  <a href="/organizer.cgi" class="btn btn-primary btn-lg for_group" role="button">
+					  		<i style="font-size: 20px;padding-bottom: 8px;" class="fa fa-cutlery"></i>
+					  		<br> Їжа
+					  </a>
+	  				  <a href="/organizer.cgi" class="btn btn-info btn-lg for_group" role="button">
+	  				  		<i style="font-size: 20px;padding-bottom: 8px;" class="fa fa-futbol-o"></i><br> Розваги
+	  				  </a>
+    					<a href="/organizer.cgi" class="btn btn-warning btn-lg for_group" role="button">
+    							<i style="font-size: 20px;padding-bottom: 8px;" class="fa fa-bed"></i><br> Нічліг
+    					</a>
+					  <a href="/organizer.cgi" class="btn btn-danger btn-lg for_group" role="button">
+					  		<i style="font-size: 20px;padding-bottom: 8px;" class="fa fa-calendar"></i><br> Події
+					  </a>
+				    </div>
 					<div class="icon">
 						<a target="_blank" href="https://www.facebook.com/%D0%A2%D1%83%D1%80%D0%B8%D1%81%D1%82%D0%B8%D1%87%D0%BD%D0%B8%D0%B9-%D0%BE%D1%80%D0%B3%D0%B0%D0%BD%D0%B0%D0%B9%D0%B7%D0%B5%D1%80-1871874569784871/" class=" favicon"><i class="fa fa-facebook"></i>
 						</a>
