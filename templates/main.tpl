@@ -10,6 +10,15 @@
     <link rel="stylesheet" href="/images/css/style.css">
     <link rel="stylesheet" href="/images/css/bootstrap.min.css">
     <link rel="stylesheet" href="/images/css/font-awesome.min.css">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-123733885-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-123733885-1');
+    </script>
 </head>
 <body>
 

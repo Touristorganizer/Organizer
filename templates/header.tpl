@@ -1,6 +1,7 @@
 <html lang="ua" class="mdl-js">
 <!--<style type="text/css" id="block-image-video"></style>-->
 <head>
+
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,6 +11,15 @@
 	<link rel="stylesheet" href="/images/css/bootstrap.min.css">
 	<link href="/images/css/header.css" rel="stylesheet">
 	<link rel="stylesheet" href="/images/css/font-awesome.min.css">
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-123733885-1"></script>
+	<script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-123733885-1');
+	</script>
 </head>
 <body data-spy="scroll" data-offset="0" data-target="#theMenu" style="" class="">
 <div id="headerwrap">
@@ -25,7 +35,7 @@
 					<a href="/organizer.cgi"><button type="button" class="btn btn-default btn-lg"><i style="font-size: 20px;padding-bottom: 8px;" class="fa fa-bed"></i><br> Нічліг</button></a>
 					<a href="/organizer.cgi"><button type="button" class="btn btn-default btn-lg"><i style="font-size: 20px;padding-bottom: 8px;" class="fa fa-calendar"></i><br> Події</button></a>
 					<div class="icon">
-						<a href="https://www.facebook.com/%D0%A2%D1%83%D1%80%D0%B8%D1%81%D1%82%D0%B8%D1%87%D0%BD%D0%B8%D0%B9-%D0%BE%D1%80%D0%B3%D0%B0%D0%BD%D0%B0%D0%B9%D0%B7%D0%B5%D1%80-1871874569784871/" class=" favicon"><i class="fa fa-facebook"></i>
+						<a target="_blank" href="https://www.facebook.com/%D0%A2%D1%83%D1%80%D0%B8%D1%81%D1%82%D0%B8%D1%87%D0%BD%D0%B8%D0%B9-%D0%BE%D1%80%D0%B3%D0%B0%D0%BD%D0%B0%D0%B9%D0%B7%D0%B5%D1%80-1871874569784871/" class=" favicon"><i class="fa fa-facebook"></i>
 						</a>
 					</div>
 				</div>
