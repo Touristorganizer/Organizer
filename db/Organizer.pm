@@ -78,7 +78,7 @@ sub service_add {
 sub get_section {
   my $self = shift;
   my ($attr) = @_;
-  $self->query("SELECT id,section_name,section_icon FROM organizer_section;", 
+  $self->query("SELECT id,section_name,section_icon,header_color FROM organizer_section;", 
     undef, { COLS_NAME => 1 });
   return $self->{list};
 }
@@ -94,7 +94,7 @@ sub get_section {
 sub info_section {
   my $self = shift;
   my ($attr) = @_;
-  $self->query("SELECT id,section_name,section_icon FROM organizer_section;", 
+  $self->query("SELECT id,section_name,section_icon,header_color FROM organizer_section;", 
     undef, { INFO => 1 });
   return $self;
 }

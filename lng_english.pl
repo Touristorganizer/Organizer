@@ -13,4 +13,7 @@ $lang{TIME_START}='Start time',
 $lang{TIME_FINISH}='Time finish',
 $lang{LAT}='Latitude',
 $lang{LNG}='Longtitude',
+$lang{START_DATE}='Start date(y-m-d)',
+$lang{FINISH_DATE}='Finish date(y-m-d)',
+$lang{HEAD_COLOR}='Header color'
 1;
