@@ -9,8 +9,8 @@ dragDrop('.moveItem', '', '');
 function dragDrop(item, firstParent, secondParent) {
     var arr = [];
 
-    if (jQuery.cookie('items')) {
-        var arr = JSON.parse(jQuery.cookie('items'));
+    if (localStorage.getItem('items')) {
+        var arr = JSON.parse(localStorage.getItem('items'));
         console.log(arr);
 
         for (var i = 0; i < arr.length; i++) {
@@ -38,14 +38,14 @@ function dragDrop(item, firstParent, secondParent) {
 
             var indexOfItem = arr.indexOf(jQuery(this).parents('.group-item').attr('id'));
             arr.splice(indexOfItem);
-            console.log(arr);
+            // console.log(arr);
         } else {
             jQuery('#selectedList').append(jQuery(this).parents('.group-item').css({height: 0}).animate({height: height}));
 
             arr.push(jQuery(this).parents('.group-item').attr('id'));
             // console.log(arr);
         }
-        jQuery.cookie('items', JSON.stringify(arr));
+        localStorage.setItem('items', JSON.stringify(arr));
 
 
 
@@ -56,9 +56,6 @@ function dragDrop(item, firstParent, secondParent) {
 
     });
 
-    jQuery('#saveItems').click(function() {
-
-    });
 }
 
 

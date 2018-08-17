@@ -163,16 +163,18 @@
         }
     });
 
-    if (jQuery.cookie('items')) {
+    if (localStorage.getItem('items')) {
         jQuery(window).on('load', function () {
-            var arr = JSON.parse(jQuery.cookie('items'));
+            var arr = JSON.parse(localStorage.getItem('items'));
             console.log("Coookies");
             console.log(arr);
 
             for (var i = 0; i < arr.length; i++) {
                 var langitude = Number(jQuery('#' + arr[i]).attr('data-lng'));
                 var latitude = Number(jQuery('#' + arr[i]).attr('data-lat'));
+                console.log("Longitude");
                 console.log(langitude);
+                console.log("Latitude");
                 console.log(latitude);
                 createMarker(latitude, langitude, "");
 

@@ -77,27 +77,46 @@ my $items = '';
 foreach my $head (@$section_list) {
 		my $information = $Organizer->get_info($head->{id});
 		foreach my $info (@$information) {
-				$items .= $html->tpl_show(_include('item', 'Organizer'), {
-								PARENTID     => 'cart-'.$head->{id},
-								ID           => 'list-'.$info->{id},
-								AVR_TIME     => $info->{avr_time},
-								IMAGE        => $info->{image},
-								SERVICE_NAME => $info->{service_name},
-								DESCRIPTION  => $info->{description},
-								ADDRESS      => $info->{address},
-								TIME_START   => $info->{time_start},
-								TIME_FINISH  => $info->{time_finish},
-								LNG          => $info->{lng},
-								LAT          => $info->{lat},
-        						START_DATE   => $info->{start_date},
-        						FINISH_DATE  => $info->{finish_date}
-						});
+				if ($info->{start_date} == '' || $info->{start_date} == '0') {
+						$items .= $html->tpl_show(_include('item2', 'Organizer'), {
+										PARENTID     => 'cart-'.$head->{id},
+										ID           => 'list-'.$info->{id},
+										AVR_TIME     => $info->{avr_time},
+										IMAGE        => $info->{image},
+										SERVICE_NAME => $info->{service_name},
+										DESCRIPTION  => $info->{description},
+										ADDRESS      => $info->{address},
+										TIME_START   => $info->{time_start},
+										TIME_FINISH  => $info->{time_finish},
+										LNG          => $info->{lng},
+										LAT          => $info->{lat},
+										# START_DATE   => $info->{start_date},
+										# FINISH_DATE  => $info->{finish_date}
+								});
+				}
+				else {
+						$items .= $html->tpl_show(_include('item1', 'Organizer'), {
+										PARENTID     => 'cart-'.$head->{id},
+										ID           => 'list-'.$info->{id},
+										AVR_TIME     => $info->{avr_time},
+										IMAGE        => $info->{image},
+										SERVICE_NAME => $info->{service_name},
+										DESCRIPTION  => $info->{description},
+										ADDRESS      => $info->{address},
+										TIME_START   => $info->{time_start},
+										TIME_FINISH  => $info->{time_finish},
+										START_DATE   => $info->{start_date},
+										FINISH_DATE  => $info->{finish_date},
+										LNG          => $info->{lng},
+										LAT          => $info->{lat},
+								});
+				}
 		}
 		$carts .= $html->tpl_show(_include('cart', 'Organizer'), {
 						SECTION_ID      => 'cart-'.$head->{id},
 						SECTION_NAME    => $head->{section_name},
 						SECTION_ICON    => $head->{section_icon},
-   						HEADER_COLOR    => $head->{header_color},
+						HEADER_COLOR    => $head->{header_color},
 						SECTION_CONTENT => $items
 				}, { OUTPUT2RETURN => 1 });
 		$items = '';

@@ -143,9 +143,8 @@ h1, h2, h3, h4, h5, h6 {
 
 
 .for_group {
-	box-shadow: 1px 1px 1px #338fc3;
+	
 	position: relative;
-	/*color: #338fc3;*/
 	font-size: 12px;
 	text-transform: uppercase;
 	min-width:80px;
