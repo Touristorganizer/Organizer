@@ -72,6 +72,8 @@
                     lat: position.coords.latitude,
                     lng: position.coords.longitude
                 };
+                console.log("User Position");
+                console.log(pos);
 
                 var marker = new google.maps.Marker({
                     position: pos,
