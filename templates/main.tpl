@@ -53,30 +53,41 @@
 
 
 <script>
+    
     var map, infoWindow;
     var markers = [];
 
+    var userPosition;
+
 
     function initMap() {
+
+        var directionsService = new google.maps.DirectionsService;
+        var directionsDisplay = new google.maps.DirectionsRenderer;
 
         map = new google.maps.Map(document.getElementById('map'), {
             center: {lat: 48.528344, lng: 25.039988},
             zoom: 14
         });
 
+        directionsDisplay.setMap(map);
+
         infoWindow = new google.maps.InfoWindow;
 
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function(position) {
-                var pos = {
+                userPosition = {
                     lat: position.coords.latitude,
                     lng: position.coords.longitude
                 };
+
+                calculateAndDisplayRoute(directionsService, directionsDisplay, userPosition);
+
                 console.log("User Position");
-                console.log(pos);
+                console.log(userPosition);
 
                 var marker = new google.maps.Marker({
-                    position: pos,
+                    position: userPosition,
                     map: map,
                     title: 'Ваше розташування!',
 
@@ -91,17 +102,44 @@
             });
         } else {
             // Browser doesn't support Geolocation
+            userPosition = {lat: 48.528344, lng: 25.039988};
             handleLocationError(false, infoWindow, map.getCenter());
+            calculateAndDisplayRoute(directionsService, directionsDisplay, userPosition);
         }
+
+        jQuery('.moveItem').click(function() {
+            calculateAndDisplayRoute(directionsService, directionsDisplay, userPosition);
+        });
+
+        if (localStorage.getItem('items')) {
+            jQuery(window).on('load', function () {
+                var arr = JSON.parse(localStorage.getItem('items'));
+                console.log("Coookies");
+                console.log(arr);
+
+                for (var i = 0; i < arr.length; i++) {
+                    var langitude = Number(jQuery('#' + arr[i]).attr('data-lng'));
+                    var latitude = Number(jQuery('#' + arr[i]).attr('data-lat'));
+                    console.log("Longitude");
+                    console.log(langitude);
+                    console.log("Latitude");
+                    console.log(latitude);
+                    createMarker(latitude, langitude, jQuery('#' + arr[i]).find('.list_title')[0].innerHTML);
+                    setMapOnAll(map);
+                }
+
+            });
+
+        }
+
     }
-
-
 
     function createMarker(latitude, langitude, title) {
         var marker = new google.maps.Marker({
             position: {lat: latitude, lng: langitude},
             map: map,
-            title: title
+            title: title,
+            icon: "https://codeshare.co.uk/images/blue-pin.png"
         });
 
         var infowindow = new google.maps.InfoWindow({
@@ -134,86 +172,59 @@
         setMapOnAll(map);
     }
 
+    function calculateAndDisplayRoute(directionsService, directionsDisplay, userPosition) {
+
+        var waypts = [];
+        deleteMarkers();
+        jQuery('#selectedList').find('li').each(function() {
+            var langitude = Number(jQuery(this).attr('data-lng'));
+            var latitude = Number(jQuery(this).attr('data-lat'));
+
+            createMarker(latitude, langitude, jQuery(this).find('.list_title')[0].innerHTML);
+
+            waypts.push({
+                location: {lat: latitude, lng: langitude},
+                stopover: true
+            });
+
+        });
+        showMarkers();
 
 
-    jQuery('.moveItem').click(function() {
 
 
-        if (jQuery(this).parents('#selectedList').length) {
 
-            setTimeout(function() {
-                deleteMarkers();
-                jQuery('#selectedList').find('li').each(function() {
-                    var langitude = Number(jQuery(this).attr('data-lng'));
-                    var latitude = Number(jQuery(this).attr('data-lat'));
 
-                    createMarker(latitude, langitude, jQuery(this).find('.list_title')[0].innerHTML);
-                });
-//                console.log(markers);
+        console.log("Точки");
+        console.log(waypts);
 
-                showMarkers();
-            }, 100);
-
-        } else {
-
-            var langitude = Number(jQuery(this).parents('.group-item').attr('data-lng'));
-            var latitude = Number(jQuery(this).parents('.group-item').attr('data-lat'));
-            createMarker(latitude, langitude, jQuery(this).siblings('.list_body').children('.list_title').text());
-
-            setMapOnAll(map);
-
-        }
-    });
-
-    if (localStorage.getItem('items')) {
-        jQuery(window).on('load', function () {
-            var arr = JSON.parse(localStorage.getItem('items'));
-            console.log("Coookies");
-            console.log(arr);
-
-            for (var i = 0; i < arr.length; i++) {
-                var langitude = Number(jQuery('#' + arr[i]).attr('data-lng'));
-                var latitude = Number(jQuery('#' + arr[i]).attr('data-lat'));
-                console.log("Longitude");
-                console.log(langitude);
-                console.log("Latitude");
-                console.log(latitude);
-                createMarker(latitude, langitude, "");
-
-                setMapOnAll(map);
+        directionsService.route({
+            origin: userPosition,
+            destination: waypts[waypts.length - 1].location,
+            waypoints: waypts,
+            optimizeWaypoints: false,
+            travelMode: 'WALKING'
+        }, function(response, status) {
+            if (status === 'OK') {
+                directionsDisplay.setDirections(response);
+                var route = response.routes[0];
+                var summaryPanel = document.getElementById('directions-panel');
+                summaryPanel.innerHTML = '';
+                // For each route, display summary information.
+                for (var i = 0; i < route.legs.length; i++) {
+                    var routeSegment = i + 1;
+                    summaryPanel.innerHTML += '<b>Route Segment: ' + routeSegment +
+                        '</b><br>';
+                    summaryPanel.innerHTML += route.legs[i].start_address + ' to ';
+                    summaryPanel.innerHTML += route.legs[i].end_address + '<br>';
+                    summaryPanel.innerHTML += route.legs[i].distance.text + '<br><br>';
+                }
+            } else {
+                window.alert('Directions request failed due to ' + status);
             }
-
         });
 
     }
-
-//    jQuery('#loadMap').click(function() {
-//        jQuery('#selectedList').find('li').each(function() {
-//            var langitude = Number(jQuery(this).attr('data-lng'));
-//            var latitude = Number(jQuery(this).attr('data-lat'));
-//
-//
-//            var infowindow = new google.maps.InfoWindow({
-//                content: jQuery(this).find('.list_title')[0].innerHTML
-//            });
-//
-//            var marker = new google.maps.Marker({
-//                position: {lat: latitude, lng: langitude},
-//                map: map,
-//                title: jQuery(this).find('.list_title')[0].innerHTML
-//            });
-//
-//            marker.addListener('click', function() {
-//                infowindow.open(map, marker);
-//            });
-//
-//
-//        });
-//    });
-
-
-
-
 
     function handleLocationError(browserHasGeolocation, infoWindow, pos) {
         infoWindow.setPosition(pos);
@@ -222,8 +233,6 @@
             'Error: Your browser doesn\'t support geolocation.');
         infoWindow.open(map);
     }
-
-
 
 
 </script>
