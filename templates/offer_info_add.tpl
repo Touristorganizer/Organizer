@@ -1,7 +1,9 @@
-<form class='form-horizontal' action=$SELF_URL method='get' id='info_form' name='info_form' role='form'>
+<link rel="stylesheet" href="/organizer/css/style.css">
+<div class="back_img">
+<form class='form-horizontal' action=$SELF_URL method='get' id='offer_info_form' name='offer_info_form' role='form'>
   <input type=hidden name=index value=$index>
   <input type=hidden name=ID value='%ID%'>
-
+  <input type=hidden name=offer_info value=%OFFER_INFO%>
   <fieldset>
     <div class='box box-form'>
       <div class='box-header with-border'>
@@ -82,16 +84,11 @@
           </div>
         </div> 
       </div>
-      <!-- <div class="form-check">
-       <input type="checkbox" class="form-check-input" id="CONFIRM">
-       <label class="form-check-label" for="CONFIRM">_{CONFIRM}_</label>
-      </div> -->
-      <div class="checkbox">
-        <label><input id='CONFIRMATION' name='CONFIRMATION' value='1' %CONFIRMATION_CHECKED% type="checkbox">_{CONFIRM}_</label>
-      </div>
       <div class='box-footer'>
           <input type=submit name=%ACTION% value='%LNG_ACTION%' class="btn btn-primary" >
+          <a class="btn btn-primary" href="/organizer.cgi" role="button">_{GO_BACK}_</a>
       </div>
     </div>
   </fieldset>
 </form>
+</div>

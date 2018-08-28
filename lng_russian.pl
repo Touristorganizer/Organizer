@@ -9,8 +9,13 @@ $lang{IMAGE}='Картинка';
 $lang{ADD_SECTION}='Добавление розделов';
 $lang{ADD_INFO}='Добавление заведений';
 $lang{ICON}='Значок'; 
-$lang{TIME_START}='Начало работы',
-$lang{TIME_FINISH}='Кінець работы',
-$lang{LAT}='Широта',
-$lang{LNG}='Долгота',
+$lang{TIME_START}='Начало работы';
+$lang{TIME_FINISH}='Кінець работы';
+$lang{LAT}='Широта';
+$lang{LNG}='Долгота';
+$lang{START_DATE}='Дата начала';
+$lang{FINISH_DATE}='Дата завершения';
+$lang{HEADER_COLOR}='Цвет раздела';
+$lang{OFFER}='Предложить заведение / событие';
+$lang{GO_BACK}='Вернуться назад';
 1;

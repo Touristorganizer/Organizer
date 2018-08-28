@@ -98,18 +98,20 @@ sub info_add {
   }
      elsif ($FORM{change}) {
     $Organizer->service_change({%FORM});
+    # _bp('', \%FORM);
     if (!$Organizer->{errno}) {
       $html->message('info', $lang{INFO}, $lang{CHANGING});
     }
   }
   elsif ($FORM{chg}) {
     $Organizer->service_info($FORM{chg});
-    # _bp('', $FORM{chg});
+    # _bp('', $Organizer);
     if (!$Organizer->{errno}) {
       $html->message('info', $lang{INFO});
     }
     $Organizer->{ACTION}     = 'change';
     $Organizer->{LNG_ACTION} = $lang{CHANGE};
+    $Organizer->{CONFIRMATION_CHECKED} = $Organizer->{CONFIRMATION} ? 'checked': '';
     $show_template2      = 1;
   }
   elsif ($FORM{del} || $FORM{COMMENTS}) {
@@ -149,7 +151,8 @@ sub info_add {
         $lang{LAT},
         $lang{LNG},
         $lang{START_DATE},
-        $lang{FINISH_DATE}, 
+        $lang{FINISH_DATE},
+        $lang{CONFIRM}, 
       ],
       pages   => $Organizer->{TOTAL},
       qs      => $pages_qs,
@@ -171,6 +174,7 @@ sub info_add {
       $line->{lng},
       $line->{start_date},
       $line->{finish_date},
+      $line->{confirmation} == 1 ? 'Confirmed' : 'Not confirmed',
       $html->button($lang{CHANGE}, "index=$index&chg=$line->{id}", { class => 'change' }), 
       $html->button($lang{DEL}, "index=$index&del=$line->{id}", { 
         class   => 'del', 

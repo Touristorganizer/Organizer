@@ -1,1 +1,0 @@
-../Abills/modules/Organizer/index.cgi

@@ -32,9 +32,11 @@ sub get_info {
   my $self = shift;
   my ($attr) = @_;
   $self->query( "SELECT id,service_name,description,address,avr_time,image,DATE_FORMAT(`time_start`, '%H:%i') AS time_start,DATE_FORMAT(`time_finish`, '%H:%i') AS time_finish,
-  lat,lng,DATE_FORMAT(`start_date`, '%d-%m-%Y') AS start_date,DATE_FORMAT(`finish_date`, '%d-%m-%Y') AS finish_date FROM organizer_info WHERE section_id = $attr;", undef, { COLS_NAME => 1 });
+  lat,lng,start_date,finish_date,confirmation FROM organizer_info WHERE section_id = $attr;", 
+  undef, { COLS_NAME => 1 });
   return $self->{list};
 }
+# DATE_FORMAT(`finish_date`, '%d-%m-%Y') AS finish_date
 #**********************************************************
 =head2 section_add() - Add section info into DB
 
@@ -139,7 +141,7 @@ sub get_service {
   my $self = shift;
   my ($attr) = @_;
   $self->query("SELECT id,service_name,description,address,avr_time,image,time_start,time_finish,
-  lat,lng,start_date,finish_date FROM organizer_info;", 
+  lat,lng,start_date,finish_date,confirmation FROM organizer_info;", 
     undef, { COLS_NAME => 1 });
   return $self->{list};
 }
@@ -156,7 +158,7 @@ sub service_info {
   my $self = shift;
   my ($attr) = @_;
   $self->query("SELECT id,service_name,description,address,avr_time,image,time_start,time_finish,
-  lat,lng,start_date,finish_date FROM organizer_info WHERE id=$attr;", 
+  lat,lng,start_date,finish_date,confirmation FROM organizer_info WHERE id=$attr;", 
     undef, { INFO => 1 });
   return $self;
 }
@@ -168,6 +170,9 @@ sub service_info {
 sub service_change {
   my $self = shift;
   my ($attr) = @_;
+  if (!$attr->{CONFIRMATION}) {
+    $attr->{CONFIRMATION} = 0;
+  }
   $self->changes(
     {
       CHANGE_PARAM => 'ID',

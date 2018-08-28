@@ -1,4 +1,3 @@
-<!doctype html>
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
@@ -7,9 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Вітаємо в Коломиї</title>
     <meta name="description" content="Туристичний органайзер для гостей міста Коломиї">
-    <link rel="stylesheet" href="/images/css/style.css">
-    <link rel="stylesheet" href="/images/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/images/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/organizer/css/style.css">
+    <link rel="stylesheet" href="/organizer/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/organizer/css/font-awesome.min.css">
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-123733885-1"></script>
     <script>
@@ -41,14 +40,17 @@
                         </div>
                     </div>
                     <div id="map"></div>
+
+                 <a href="?offer_info=1" class="btn btn-success btn-lg active center-block" role="button" style="margin-top: 5%">_{OFFER}_</a>
                 </div>
             </div>
+            
         </div>
     </section>
 </main>
 
 
-<script src="/images/js/jquery.min.js"></script>
+<script src="/organizer/js/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 
 
@@ -238,7 +240,7 @@
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCJe0Bq1p8kT6s8fJbHX5pBdG8XZoBHVT0&callback=initMap"
         async defer></script>
-<script src="/images/js/index.js"></script>
-<script src="/images/js/bootstrap.min.js"></script>
+<script src="/organizer/js/index.js"></script>
+<script src="/organizer/js/bootstrap.min.js"></script>
 </body>
 </html>

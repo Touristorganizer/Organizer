@@ -59,7 +59,7 @@
     padding: 0 7px;
 }
 body {
-    background: url(/images/img/main_image.jpg) no-repeat center top;
+    background: url(/organizer/img/main_image.jpg) no-repeat center top;
     background-size: cover;
     background-attachment: fixed;
     min-height: 100vh;
