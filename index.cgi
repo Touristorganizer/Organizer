@@ -65,10 +65,23 @@ Conf->new($db, undef, \%conf);
 $html->{METATAGS} = templates('metatags_client');
 print $html->header();
 
-# Диалоговое окно приветсвия
-print $html->tpl_show(_include('header', 'Organizer'));
+# print $html->tpl_show(_include('preloader', 'Organizer'));
 
+my $section_list = $Organizer->get_section();
+my $headers_id = '';
 
+  foreach my $head (@$section_list) {
+    $headers_id .= $html->tpl_show(_include('header_button', 'Organizer'), {
+            HEADERS_ID     => $head->{id},
+            BUTTON_NAME    => $head->{section_name},
+            BUTTON_ICON    => $head->{section_icon},
+            BUTTON_COLOR    => $head->{header_color},
+              }, { OUTPUT2RETURN => 1 });
+}
+
+print $html->tpl_show(_include('header', 'Organizer'), {
+    HEADER_BUTTONS => $headers_id,
+  });
 
 
 1;

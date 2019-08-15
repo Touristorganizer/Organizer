@@ -67,7 +67,7 @@ print $html->header();
 if($FORM{offer_info}) {
 	offer_new_info();
     exit;
-}
+} 	
 
 my $section_list = $Organizer->get_section();
 my $section_item2 = '';
@@ -113,21 +113,20 @@ foreach my $head (@$section_list) {
 										LNG          => $info->{lng},
 										LAT          => $info->{lat},
 								});
-						# print $DATE;
-						# _bp('', $info->{finish_date});
-					}
+						}
 					}
 				}
 				}
-		
-		$carts .= $html->tpl_show(_include('cart', 'Organizer'), {
+			$carts .= $html->tpl_show(_include('cart', 'Organizer'), {
 						SECTION_ID      => 'cart-'.$head->{id},
+						SELECT_IDS      => $head->{id},
 						SECTION_NAME    => $head->{section_name},
 						SECTION_ICON    => $head->{section_icon},
 						HEADER_COLOR    => $head->{header_color},
 						SECTION_CONTENT => $items
-				}, { OUTPUT2RETURN => 1 });
+				      }, { OUTPUT2RETURN => 1 });
 		$items = '';
+
 		#     $section_item2 .= $html->tpl_show(_include('TEMPLATE SECTION RIGHT', 'Organizer'), {
 		#       HEADER_NAME2 => $head->{header_name},
 		#       ID           => $head->{id}}, { OUTPUT2RETURN => 1 });
@@ -137,11 +136,9 @@ foreach my $head (@$section_list) {
 
 #  print $carts;
 
-print $html->tpl_show(_include('main', 'Organizer'), {
+	print $html->tpl_show(_include('main', 'Organizer'), {
 				CONTENT => $carts,
 		});
-
-
 #**********************************************************
 =head2 service_price_add() - Add headers and items to DB 
 
@@ -159,7 +156,7 @@ sub offer_new_info {
   if ($FORM{add}) {
     $Organizer->service_add({%FORM});
     if (!$Organizer->{errno}) {
-      print $html->message('info', $lang{INFO}, $lang{ADDED});
+      print $html->message('info', $lang{THANKS_INFO});
     }
   }
 

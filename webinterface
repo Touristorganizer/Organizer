@@ -3,6 +3,7 @@
 use strict;
 use warnings FATAL => 'all';
 use Data::Dumper;
+use JSON;
 use Abills::Base qw(_bp);
 use Organizer::db::Organizer;
 our ($db, $admin, %info, %conf, %lang, $html,);
@@ -54,6 +55,11 @@ sub section_add {
   }
  
   my $section_list = $Organizer->get_section();
+  # if (if exists $FORM{"json"} && $FORM{"json"} == 1) {
+  #   my $json_text = JSON->encode($section_list);
+  #   print $json_text;
+  #   return 1;
+  # }
   my $table        = $html->table(
     {
       width   => '100%',
@@ -64,7 +70,7 @@ sub section_add {
        $lang{NAME}, 
        $lang{ICON}, 
        $lang{HEADER_COLOR} ],
-      pages   => $Organizer->{TOTAL},
+      # pages   => $Organizer->{TOTAL},
       qs      => $pages_qs,
       ID      => 'SECTION_ID',
       MENU    => "$lang{ADD}:index=$index&section_form=1&$pages_qs:add",

@@ -1,5 +1,14 @@
 <link rel="stylesheet" href="/organizer/css/style.css">
-<div class="back_img">
+<body class="preload_body">
+<!-- Preloader -->
+<div class="preloader">
+  <div class="loader"></div>
+  <div class="loader"></div>
+  <div class="loader"></div>
+  <div class="loader"></div>
+  <div class="loader"></div>
+</div>
+<div class="back_img" style="display: none;">
 <form class='form-horizontal' action=$SELF_URL method='get' id='offer_info_form' name='offer_info_form' role='form'>
   <input type=hidden name=index value=$index>
   <input type=hidden name=ID value='%ID%'>
@@ -36,11 +45,14 @@
           </div>
         </div>
           <div class='form-group'>
-          <label class='control-label col-md-3 text-left'  for='AVR_TIME'>_{AVR_TIME}_</label>
-          <div class='col-md-9'>
-            <input id='AVR_TIME' name='AVR_TIME' value='%AVR_TIME%' class='form-control' type='text' autocomplete="off" required>
-          </div>
-        </div>
+            <label class='control-label col-md-3 text-left'  for='AVR_TIME'>_{AVR_TIME}_</label>
+            <div class='col-md-9'>
+            <div class="input-group">
+              <input type="text" class="form-control" id="AVR_TIME" name='AVR_TIME' value='%AVR_TIME%' autocomplete="off" required>
+              <div class="input-group-addon">_{HOURS}_</div>
+            </div>
+            </div>
+           </div>
           <div class='form-group'>
           <label class='control-label col-md-3 text-left'  for='IMAGE'>_{IMAGE}_</label>
           <div class='col-md-9'>
@@ -84,6 +96,7 @@
           </div>
         </div> 
       </div>
+      
       <div class='box-footer'>
           <input type=submit name=%ACTION% value='%LNG_ACTION%' class="btn btn-primary" >
           <a class="btn btn-primary" href="/organizer.cgi" role="button">_{GO_BACK}_</a>
@@ -92,3 +105,5 @@
   </fieldset>
 </form>
 </div>
+</body>
+<script src="/organizer/js/index.js"></script>
